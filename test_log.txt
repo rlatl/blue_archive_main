@@ -1,0 +1,100 @@
+[2025-07-23 00:38:00] --- Start test: notice ---
+[2025-07-23 00:38:00] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice.png
+[2025-07-23 00:38:03] notice: PASS
+[2025-07-23 00:38:06] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_close.png
+[2025-07-23 00:38:09] --- Start test: momo ---
+[2025-07-23 00:38:09] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo.png
+[2025-07-23 00:38:12] momo: FAIL (target not found)
+[2025-07-23 00:38:14] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_close.png
+[2025-07-23 00:38:17] --- Start test: mission ---
+[2025-07-23 00:38:17] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission.png
+[2025-07-23 00:38:21] mission: PASS
+[2025-07-23 00:38:23] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_close.png
+[2025-07-23 00:38:26] --- Start test: bluepy ---
+[2025-07-23 00:38:26] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy.png
+[2025-07-23 00:38:29] bluepy: PASS
+[2025-07-23 00:38:31] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_close.png
+[2025-07-23 00:38:34] --- Start test: cafe ---
+[2025-07-23 00:38:35] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe.png
+[2025-07-23 00:38:40] cafe: PASS
+[2025-07-23 00:38:42] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_close.png
+[2025-07-23 00:38:47] --- Start test: lesson ---
+[2025-07-23 00:38:47] Clicked image: C:\Users\KIM\blue_archive_main_test\images\lesson.png
+[2025-07-23 00:38:50] lesson: FAIL (target not found)
+[2025-07-23 00:38:52] Image not found (low confidence): C:\Users\KIM\blue_archive_main_test\images\lesson_close.png | confidence: 0.5696876049041748
+[2025-07-23 00:38:53] lesson: close image not found
+[2025-07-23 00:38:56] --- Start test: students ---
+[2025-07-23 00:38:56] Clicked image: C:\Users\KIM\blue_archive_main_test\images\students.png
+[2025-07-23 00:38:59] Image not found (low confidence): C:\Users\KIM\blue_archive_main_test\images\students_special_button.png | confidence: 0.5298321843147278
+[2025-07-23 00:38:59] students: FAIL (one or more target checks failed)
+[2025-07-23 00:39:01] Image not found (low confidence): C:\Users\KIM\blue_archive_main_test\images\students_close.png | confidence: 0.5561403632164001
+[2025-07-23 00:39:01] students: close image not found
+[2025-07-23 00:39:04] --- Start test: formation ---
+[2025-07-23 00:39:04] Image not found (low confidence): C:\Users\KIM\blue_archive_main_test\images\formation.png | confidence: 0.36511480808258057
+[2025-07-23 00:39:04] formation: FAIL (button not found)
+[2025-07-23 00:39:04] --- Start test: social ---
+[2025-07-23 00:39:04] Image not found (low confidence): C:\Users\KIM\blue_archive_main_test\images\social.png | confidence: 0.4524071514606476
+[2025-07-23 00:39:04] social: FAIL (button not found)
+[2025-07-23 00:39:04] --- Start test: crafting ---
+[2025-07-23 00:39:04] Image not found (low confidence): C:\Users\KIM\blue_archive_main_test\images\crafting.png | confidence: 0.5626991987228394
+[2025-07-23 00:39:04] crafting: FAIL (button not found)
+[2025-07-23 00:39:04] --- Start test: shop ---
+[2025-07-23 00:39:04] Image not found (low confidence): C:\Users\KIM\blue_archive_main_test\images\shop.png | confidence: 0.7074061036109924
+[2025-07-23 00:39:04] shop: FAIL (button not found)
+[2025-07-23 00:39:04] --- Start test: recruit ---
+[2025-07-23 00:39:04] Image not found (low confidence): C:\Users\KIM\blue_archive_main_test\images\recruit.png | confidence: 0.4067545235157013
+[2025-07-23 00:39:04] recruit: FAIL (button not found)
+[2025-07-23 00:39:04] === All tests completed ===
+[2025-07-23 01:24:01] --- Start test: notice ---
+[2025-07-23 01:24:02] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice.png
+[2025-07-23 01:24:05] notice: PASS
+[2025-07-23 01:24:07] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_close.png
+[2025-07-23 01:24:10] --- Start test: momo ---
+[2025-07-23 01:24:10] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo.png
+[2025-07-23 01:24:13] momo: FAIL (target not found)
+[2025-07-23 01:24:16] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_close.png
+[2025-07-23 01:24:19] --- Start test: mission ---
+[2025-07-23 01:24:19] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission.png
+[2025-07-23 01:24:22] mission: PASS
+[2025-07-23 01:24:24] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_close.png
+[2025-07-23 01:24:27] --- Start test: bluepy ---
+[2025-07-23 01:24:28] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy.png
+[2025-07-23 01:24:31] bluepy: PASS
+[2025-07-23 01:24:33] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_close.png
+[2025-07-23 01:24:36] --- Start test: cafe ---
+[2025-07-23 01:24:36] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe.png
+[2025-07-23 01:24:41] cafe: PASS
+[2025-07-23 01:24:44] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_close.png
+[2025-07-23 01:24:49] --- Start test: lesson ---
+[2025-07-23 01:24:49] Clicked image: C:\Users\KIM\blue_archive_main_test\images\lesson.png
+[2025-07-23 01:24:52] lesson: PASS
+[2025-07-23 01:24:54] Clicked image: C:\Users\KIM\blue_archive_main_test\images\lesson_close.png
+[2025-07-23 01:24:57] --- Start test: students ---
+[2025-07-23 01:24:58] Clicked image: C:\Users\KIM\blue_archive_main_test\images\students.png
+[2025-07-23 01:25:01] Clicked image: C:\Users\KIM\blue_archive_main_test\images\students_special_button.png
+[2025-07-23 01:25:03] students: PASS (3 target checks passed)
+[2025-07-23 01:25:05] Clicked image: C:\Users\KIM\blue_archive_main_test\images\students_close.png
+[2025-07-23 01:25:08] --- Start test: formation ---
+[2025-07-23 01:25:09] Clicked image: C:\Users\KIM\blue_archive_main_test\images\formation.png
+[2025-07-23 01:25:12] formation: FAIL (target not found)
+[2025-07-23 01:25:14] Image not found (low confidence): C:\Users\KIM\blue_archive_main_test\images\formation_close.png | confidence: 0.5786534547805786
+[2025-07-23 01:25:14] formation: close image not found
+[2025-07-23 01:25:17] --- Start test: social ---
+[2025-07-23 01:25:17] Clicked image: C:\Users\KIM\blue_archive_main_test\images\social.png
+[2025-07-23 01:25:20] social: FAIL (target not found)
+[2025-07-23 01:25:22] Image not found (low confidence): C:\Users\KIM\blue_archive_main_test\images\social_close.png | confidence: 0.38794296979904175
+[2025-07-23 01:25:22] social: close image not found
+[2025-07-23 01:25:25] --- Start test: crafting ---
+[2025-07-23 01:25:25] Clicked image: C:\Users\KIM\blue_archive_main_test\images\crafting.png
+[2025-07-23 01:25:29] crafting: PASS
+[2025-07-23 01:25:31] Clicked image: C:\Users\KIM\blue_archive_main_test\images\crafting_close.png
+[2025-07-23 01:25:34] --- Start test: shop ---
+[2025-07-23 01:25:34] Clicked image: C:\Users\KIM\blue_archive_main_test\images\shop.png
+[2025-07-23 01:25:37] shop: PASS
+[2025-07-23 01:25:39] Clicked image: C:\Users\KIM\blue_archive_main_test\images\shop_close.png
+[2025-07-23 01:25:42] --- Start test: recruit ---
+[2025-07-23 01:25:43] Clicked image: C:\Users\KIM\blue_archive_main_test\images\recruit.png
+[2025-07-23 01:25:46] recruit: FAIL (target not found)
+[2025-07-23 01:25:48] Image not found (low confidence): C:\Users\KIM\blue_archive_main_test\images\recruit_close.png | confidence: 0.5719336271286011
+[2025-07-23 01:25:48] recruit: close image not found
+[2025-07-23 01:25:51] === All tests completed ===
