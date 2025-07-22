@@ -84,48 +84,79 @@ def run_tests():
         print(f"Testing: {case}")
         write_log(f"--- Start test: {case} ---")
 
-        if find_and_click(button_img):
-            wait_time = 5 if case in slow_cases else 3
-            time.sleep(wait_time)
-
-            if case == "students":
-                # 학생 항목 특수 처리
-                target1 = os.path.join(image_dir, "students_target1.png")
-                target2 = os.path.join(image_dir, "students_target2.png")
-                special_btn = os.path.join(image_dir, "students_special_button.png")
-                target3 = os.path.join(image_dir, "students_special_target.png")
-
-                ok1 = image_exists(target1)
-                ok2 = image_exists(target2)
-                if find_and_click(special_btn):
-                    time.sleep(2)
-                    ok3 = image_exists(target3)
-                else:
-                    ok3 = False
-
-                if ok1 and ok2 and ok3:
-                    write_result(case, "PASS")
-                    write_log(f"{case}: PASS (3 target checks passed)")
-                else:
-                    write_result(case, "FAIL (target check failed)")
-                    write_log(f"{case}: FAIL (one or more target checks failed)")
-
-            else:
-                target_img = os.path.join(image_dir, f"{case}_target.png")
-                if image_exists(target_img):
-                    write_result(case, "PASS")
-                    write_log(f"{case}: PASS")
-                else:
-                    write_result(case, "FAIL (target not found)")
-                    write_log(f"{case}: FAIL (target not found)")
-
-            time.sleep(2)
-            if not find_and_click(close_img):
-                write_log(f"{case}: close image not found")
-            time.sleep(wait_time)
-        else:
+        if not find_and_click(button_img):
             write_result(case, "FAIL (button not found)")
             write_log(f"{case}: FAIL (button not found)")
+            continue
+
+        wait_time = 5 if case in slow_cases else 3
+        time.sleep(wait_time)
+
+        if case == "students":
+            # 학생 항목 특수 처리
+            target1 = os.path.join(image_dir, "students_target1.png")
+            target2 = os.path.join(image_dir, "students_target2.png")
+            special_btn = os.path.join(image_dir, "students_special_button.png")
+            target3 = os.path.join(image_dir, "students_special_target.png")
+
+            ok1 = image_exists(target1)
+            ok2 = image_exists(target2)
+            if find_and_click(special_btn):
+                time.sleep(2)
+                ok3 = image_exists(target3)
+            else:
+                ok3 = False
+
+            if ok1 and ok2 and ok3:
+                write_result(case, "PASS")
+                write_log(f"{case}: PASS (3 target checks passed)")
+            else:
+                write_result(case, "FAIL (target check failed)")
+                write_log(f"{case}: FAIL (one or more target checks failed)")
+
+        elif case == "notice":
+            # 공지사항 항목: notice → notice1 클릭 → target 스크롤 탐색
+            notice1 = os.path.join(image_dir, "notice1.png")
+            target_img = os.path.join(image_dir, "notice_target.png")
+
+            time.sleep(4)
+
+            if not find_and_click(notice1):
+                write_result(case, "FAIL (notice1 not found)")
+                write_log(f"{case}: FAIL (notice1 not found)")
+                continue
+
+            time.sleep(3)
+
+            found = False
+            for _ in range(15):
+                if image_exists(target_img):
+                    found = True
+                    break
+                pyautogui.scroll(-1000)
+                time.sleep(1)
+
+            if found:
+                write_result(case, "PASS")
+                write_log(f"{case}: PASS (target found after scrolling)")
+            else:
+                write_result(case, "FAIL (target not found)")
+                write_log(f"{case}: FAIL (target not found after scrolling)")
+
+        else:
+            # 기본 케이스
+            target_img = os.path.join(image_dir, f"{case}_target.png")
+            if image_exists(target_img):
+                write_result(case, "PASS")
+                write_log(f"{case}: PASS")
+            else:
+                write_result(case, "FAIL (target not found)")
+                write_log(f"{case}: FAIL (target not found)")
+
+        time.sleep(2)
+        if not find_and_click(close_img):
+            write_log(f"{case}: close image not found")
+        time.sleep(wait_time)
 
     print("테스트 완료.")
     write_log("=== All tests completed ===")

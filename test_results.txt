@@ -1,24 +1,12 @@
 notice: PASS
-momo: FAIL (target not found)
-mission: PASS
-bluepy: PASS
-cafe: PASS
-lesson: FAIL (target not found)
-students: FAIL (target check failed)
-formation: FAIL (button not found)
-social: FAIL (button not found)
-crafting: FAIL (button not found)
-shop: FAIL (button not found)
-recruit: FAIL (button not found)
-notice: PASS
-momo: FAIL (target not found)
+momo: PASS
 mission: PASS
 bluepy: PASS
 cafe: PASS
 lesson: PASS
-students: PASS
-formation: FAIL (target not found)
-social: FAIL (target not found)
+students: FAIL (target check failed)
+formation: PASS
+social: PASS
 crafting: PASS
 shop: PASS
-recruit: FAIL (target not found)
+recruit: PASS
