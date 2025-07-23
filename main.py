@@ -20,10 +20,11 @@ def write_log(message):
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         log_file.write(f"[{timestamp}] {message}\n")
 
-# 테스트 결과 기록 함수
+# 테스트 결과 기록 함수 (날짜 포함)
 def write_result(test_case, result):
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with open(result_file_path, "a", encoding="utf-8") as f:
-        f.write(f"{test_case}: {result}\n")
+        f.write(f"[{timestamp}] {test_case}: {result}\n")
 
 # 이미지 존재 여부 확인 함수
 def image_exists(template_path, threshold=0.9):
@@ -71,6 +72,27 @@ def find_and_click(template_path, threshold=0.9):
         write_log(f"find_and_click error: {e}")
         return False
 
+# 복구 함수
+def attempt_recovery():
+    back_button = (15, 48)
+    main_img = os.path.join(image_dir, "main_campaign.png")
+    notice_close_img = os.path.join(image_dir, "notice_close.png")
+
+    attempt = 0
+    while not image_exists(main_img):
+        if image_exists(notice_close_img):
+            find_and_click(notice_close_img)
+            write_log(f"Recovery attempt {attempt + 1}: clicked notice_close")
+        else:
+            pyautogui.click(back_button)
+            write_log(f"Recovery attempt {attempt + 1}: clicked back button")
+
+        time.sleep(3)
+        attempt += 1
+
+    write_log("Recovery success: main screen detected")
+    return True
+
 # 테스트 실행 함수
 def run_tests():
     slow_cases = ["cafe"]
@@ -78,20 +100,24 @@ def run_tests():
         test_cases = json.load(f)
 
     for case in test_cases:
-        button_img = os.path.join(image_dir, f"{case}.png")
+        button_img = os.path.join(image_dir, f"{case}_button.png")
         close_img = os.path.join(image_dir, f"{case}_close.png")
 
         print(f"Testing: {case}")
         write_log(f"--- Start test: {case} ---")
 
+        # 버튼 이미지 탐색 실패 시 복구
         if not find_and_click(button_img):
-            write_result(case, "FAIL (button not found)")
-            write_log(f"{case}: FAIL (button not found)")
-            continue
+            write_log(f"{case}: button not found, initiating recovery...")
+            attempt_recovery()
+            if not find_and_click(button_img):
+                write_result(case, "FAIL (button not found after recovery)")
+                continue
 
         wait_time = 5 if case in slow_cases else 3
         time.sleep(wait_time)
 
+        # 테스트 케이스 로직 분기
         if case == "students":
             # 학생 항목 특수 처리
             target1 = os.path.join(image_dir, "students_target1.png")
@@ -115,19 +141,17 @@ def run_tests():
                 write_log(f"{case}: FAIL (one or more target checks failed)")
 
         elif case == "notice":
-            # 공지사항 항목: notice → notice1 클릭 → target 스크롤 탐색
             notice1 = os.path.join(image_dir, "notice1.png")
             target_img = os.path.join(image_dir, "notice_target.png")
 
             time.sleep(4)
-
             if not find_and_click(notice1):
                 write_result(case, "FAIL (notice1 not found)")
                 write_log(f"{case}: FAIL (notice1 not found)")
+                attempt_recovery()
                 continue
 
             time.sleep(3)
-
             found = False
             for _ in range(15):
                 if image_exists(target_img):
@@ -144,7 +168,6 @@ def run_tests():
                 write_log(f"{case}: FAIL (target not found after scrolling)")
 
         else:
-            # 기본 케이스
             target_img = os.path.join(image_dir, f"{case}_target.png")
             if image_exists(target_img):
                 write_result(case, "PASS")
@@ -152,10 +175,17 @@ def run_tests():
             else:
                 write_result(case, "FAIL (target not found)")
                 write_log(f"{case}: FAIL (target not found)")
+                if not case.endswith("_target"):
+                    write_log(f"{case}: attempting recovery due to unexpected screen")
+                    attempt_recovery()
 
         time.sleep(2)
+
+        # 닫기 이미지 탐색 실패 시 복구
         if not find_and_click(close_img):
-            write_log(f"{case}: close image not found")
+            write_log(f"{case}: close image not found, initiating recovery...")
+            attempt_recovery()
+
         time.sleep(wait_time)
 
     print("테스트 완료.")

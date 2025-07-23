@@ -1,12 +1,12 @@
-notice: PASS
-momo: PASS
-mission: PASS
-bluepy: PASS
-cafe: PASS
-lesson: PASS
-students: FAIL (target check failed)
-formation: PASS
-social: PASS
-crafting: PASS
-shop: PASS
-recruit: PASS
+[2025-07-23 09:55:33] notice: PASS
+[2025-07-23 09:55:41] momo: FAIL (target not found)
+[2025-07-23 09:55:50] mission: PASS
+[2025-07-23 09:55:59] bluepy: PASS
+[2025-07-23 09:56:09] cafe: PASS
+[2025-07-23 09:56:20] lesson: PASS
+[2025-07-23 09:56:31] students: PASS
+[2025-07-23 09:56:39] formation: PASS
+[2025-07-23 09:56:48] social: PASS
+[2025-07-23 09:56:57] crafting: PASS
+[2025-07-23 09:57:05] shop: FAIL (target not found)
+[2025-07-23 09:57:14] recruit: FAIL (target not found)
