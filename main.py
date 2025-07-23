@@ -128,7 +128,23 @@ def run_tests():
             delay = SLOW_DELAY if case in slow_cases else NORMAL_DELAY
             time.sleep(delay)
 
+
             if case == "students":
+                # special_activate가 보이면 striker 클릭
+                special_activate_img = os.path.join(image_dir, "special_activate.png")
+                striker_img = os.path.join(image_dir, "striker.png")
+
+                if image_exists(special_activate_img):
+                    write_log("special_activate.png detected")
+                    if find_and_click(striker_img):
+                        write_log("Clicked striker.png")
+                        time.sleep(2)
+                    else:
+                        write_log("Failed to click striker.png")
+                else:
+                    write_log("special_activate.png not found, skipping striker click")
+
+                # 기존 students 테스트
                 target1 = os.path.join(image_dir, "students_target1.png")
                 target2 = os.path.join(image_dir, "students_target2.png")
                 special_btn = os.path.join(image_dir, "students_special_button.png")
