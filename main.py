@@ -6,6 +6,13 @@ import os
 import time
 import json
 from datetime import datetime
+import toml
+
+# 설정 로드
+config = toml.load("config.toml")
+REPEAT = config["settings"].get("repeat", 3)
+SLOW_DELAY = config["settings"].get("slow_case_delay", 5)
+NORMAL_DELAY = config["settings"].get("normal_case_delay", 3)
 
 # 경로 설정
 current_path = os.path.dirname(os.path.abspath(__file__))
@@ -96,97 +103,100 @@ def attempt_recovery():
 # 테스트 실행 함수
 def run_tests():
     slow_cases = ["cafe"]
+
     with open(test_case_file, "r", encoding="utf-8") as f:
         test_cases = json.load(f)
 
-    for case in test_cases:
-        button_img = os.path.join(image_dir, f"{case}_button.png")
-        close_img = os.path.join(image_dir, f"{case}_close.png")
+    for run in range(REPEAT):
+        write_log(f"==== Run {run + 1} / {REPEAT} ====")
 
-        print(f"Testing: {case}")
-        write_log(f"--- Start test: {case} ---")
+        for case in test_cases:
+            button_img = os.path.join(image_dir, f"{case}_button.png")
+            close_img = os.path.join(image_dir, f"{case}_close.png")
 
-        # 버튼 이미지 탐색 실패 시 복구
-        if not find_and_click(button_img):
-            write_log(f"{case}: button not found, initiating recovery...")
-            attempt_recovery()
+            print(f"Testing: {case}")
+            write_log(f"--- Start test: {case} ---")
+
+            # 버튼 이미지 탐색 실패 시 복구
             if not find_and_click(button_img):
-                write_result(case, "FAIL (button not found after recovery)")
-                continue
-
-        wait_time = 5 if case in slow_cases else 3
-        time.sleep(wait_time)
-
-        # 테스트 케이스 로직 분기
-        if case == "students":
-            # 학생 항목 특수 처리
-            target1 = os.path.join(image_dir, "students_target1.png")
-            target2 = os.path.join(image_dir, "students_target2.png")
-            special_btn = os.path.join(image_dir, "students_special_button.png")
-            target3 = os.path.join(image_dir, "students_special_target.png")
-
-            ok1 = image_exists(target1)
-            ok2 = image_exists(target2)
-            if find_and_click(special_btn):
-                time.sleep(2)
-                ok3 = image_exists(target3)
-            else:
-                ok3 = False
-
-            if ok1 and ok2 and ok3:
-                write_result(case, "PASS")
-                write_log(f"{case}: PASS (3 target checks passed)")
-            else:
-                write_result(case, "FAIL (target check failed)")
-                write_log(f"{case}: FAIL (one or more target checks failed)")
-
-        elif case == "notice":
-            notice1 = os.path.join(image_dir, "notice1.png")
-            target_img = os.path.join(image_dir, "notice_target.png")
-
-            time.sleep(4)
-            if not find_and_click(notice1):
-                write_result(case, "FAIL (notice1 not found)")
-                write_log(f"{case}: FAIL (notice1 not found)")
+                write_log(f"{case}: button not found, initiating recovery...")
                 attempt_recovery()
-                continue
+                if not find_and_click(button_img):
+                    write_result(case, "FAIL (button not found after recovery)")
+                    continue
 
-            time.sleep(3)
-            found = False
-            for _ in range(15):
-                if image_exists(target_img):
-                    found = True
-                    break
-                pyautogui.scroll(-1000)
-                time.sleep(1)
+            delay = SLOW_DELAY if case in slow_cases else NORMAL_DELAY
+            time.sleep(delay)
 
-            if found:
-                write_result(case, "PASS")
-                write_log(f"{case}: PASS (target found after scrolling)")
-            else:
-                write_result(case, "FAIL (target not found)")
-                write_log(f"{case}: FAIL (target not found after scrolling)")
+            if case == "students":
+                target1 = os.path.join(image_dir, "students_target1.png")
+                target2 = os.path.join(image_dir, "students_target2.png")
+                special_btn = os.path.join(image_dir, "students_special_button.png")
+                target3 = os.path.join(image_dir, "students_special_target.png")
 
-        else:
-            target_img = os.path.join(image_dir, f"{case}_target.png")
-            if image_exists(target_img):
-                write_result(case, "PASS")
-                write_log(f"{case}: PASS")
-            else:
-                write_result(case, "FAIL (target not found)")
-                write_log(f"{case}: FAIL (target not found)")
-                if not case.endswith("_target"):
-                    write_log(f"{case}: attempting recovery due to unexpected screen")
+                ok1 = image_exists(target1)
+                ok2 = image_exists(target2)
+                if find_and_click(special_btn):
+                    time.sleep(2)
+                    ok3 = image_exists(target3)
+                else:
+                    ok3 = False
+
+                if ok1 and ok2 and ok3:
+                    write_result(case, "PASS")
+                    write_log(f"{case}: PASS (3 target checks passed)")
+                else:
+                    write_result(case, "FAIL (target check failed)")
+                    write_log(f"{case}: FAIL (one or more target checks failed)")
+
+            elif case == "notice":
+                notice1 = os.path.join(image_dir, "notice1.png")
+                target_img = os.path.join(image_dir, "notice_target.png")
+
+                time.sleep(4)
+                if not find_and_click(notice1):
+                    write_result(case, "FAIL (notice1 not found)")
+                    write_log(f"{case}: FAIL (notice1 not found)")
                     attempt_recovery()
+                    continue
 
-        time.sleep(2)
+                time.sleep(3)
+                found = False
+                for _ in range(15):
+                    if image_exists(target_img):
+                        found = True
+                        break
+                    pyautogui.scroll(-1000)
+                    time.sleep(1)
 
-        # 닫기 이미지 탐색 실패 시 복구
-        if not find_and_click(close_img):
-            write_log(f"{case}: close image not found, initiating recovery...")
-            attempt_recovery()
+                if found:
+                    write_result(case, "PASS")
+                    write_log(f"{case}: PASS (target found after scrolling)")
+                else:
+                    write_result(case, "FAIL (target not found)")
+                    write_log(f"{case}: FAIL (target not found after scrolling)")
 
-        time.sleep(wait_time)
+            else:
+                target_img = os.path.join(image_dir, f"{case}_target.png")
+                if image_exists(target_img):
+                    write_result(case, "PASS")
+                    write_log(f"{case}: PASS")
+                else:
+                    write_result(case, "FAIL (target not found)")
+                    write_log(f"{case}: FAIL (target not found)")
+                    if not case.endswith("_target"):
+                        write_log(f"{case}: attempting recovery due to unexpected screen")
+                        attempt_recovery()
+
+            time.sleep(2)
+
+            if not find_and_click(close_img):
+                write_log(f"{case}: close image not found, initiating recovery...")
+                attempt_recovery()
+
+            time.sleep(delay)
+
+        write_log(f"==== Run {run + 1} completed ====")
 
     print("테스트 완료.")
     write_log("=== All tests completed ===")
