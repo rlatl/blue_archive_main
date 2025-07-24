@@ -7,6 +7,21 @@ import time
 import json
 from datetime import datetime
 import toml
+import argparse
+
+#--start 1  : notice  
+#--start 2  : momo  
+#--start 3  : mission  
+#--start 4  : bluepy  
+#--start 5  : cafe  
+#--start 6  : lesson  
+#--start 7  : students  
+#--start 8  : formation  
+#--start 9  : social  
+#--start 10 : crafting  
+#--start 11 : shop  
+#--start 12 : recruit  
+
 
 # 설정 로드
 config = toml.load("config.toml")
@@ -27,13 +42,13 @@ def write_log(message):
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         log_file.write(f"[{timestamp}] {message}\n")
 
-# 테스트 결과 기록 함수 (날짜 포함)
+# 테스트 결과 기록 함수
 def write_result(test_case, result):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with open(result_file_path, "a", encoding="utf-8") as f:
         f.write(f"[{timestamp}] {test_case}: {result}\n")
 
-# 이미지 존재 여부 확인 함수
+# 이미지 확인
 def image_exists(template_path, threshold=0.9):
     try:
         with mss.mss() as sct:
@@ -51,7 +66,7 @@ def image_exists(template_path, threshold=0.9):
         write_log(f"image_exists error: {e}")
         return False
 
-# 이미지 클릭 함수
+# 이미지 클릭
 def find_and_click(template_path, threshold=0.9):
     try:
         with mss.mss() as sct:
@@ -73,7 +88,7 @@ def find_and_click(template_path, threshold=0.9):
                 write_log(f"Clicked image: {template_path}")
                 return True
             else:
-                write_log(f"Image not found (low confidence): {template_path} | confidence: {max_val}")
+                write_log(f"Image not found: {template_path} | confidence: {max_val}")
                 return False
     except Exception as e:
         write_log(f"find_and_click error: {e}")
@@ -93,130 +108,113 @@ def attempt_recovery():
         else:
             pyautogui.click(back_button)
             write_log(f"Recovery attempt {attempt + 1}: clicked back button")
-
         time.sleep(3)
         attempt += 1
-
     write_log("Recovery success: main screen detected")
-    return True
 
-# 테스트 실행 함수
-def run_tests():
-    slow_cases = ["cafe"]
+# 단계별 테스트 실행
+def run_step(case):
+    button_img = os.path.join(image_dir, f"{case}_button.png")
+    close_img = os.path.join(image_dir, f"{case}_close.png")
 
+    print(f"Testing: {case}")
+    write_log(f"--- Start test: {case} ---")
+
+    if not find_and_click(button_img):
+        write_log(f"{case}: button not found, initiating recovery...")
+        attempt_recovery()
+        if not find_and_click(button_img):
+            write_result(case, "FAIL (button not found after recovery)")
+            return
+
+    delay = SLOW_DELAY if case == "cafe" else NORMAL_DELAY
+    time.sleep(delay)
+
+    if case == "students":
+        special_activate_img = os.path.join(image_dir, "special_activate.png")
+        striker_img = os.path.join(image_dir, "striker.png")
+
+        if image_exists(special_activate_img):
+            write_log("special_activate.png detected")
+            if find_and_click(striker_img):
+                write_log("Clicked striker.png")
+                time.sleep(2)
+
+        target1 = os.path.join(image_dir, "students_target1.png")
+        target2 = os.path.join(image_dir, "students_target2.png")
+        special_btn = os.path.join(image_dir, "students_special_button.png")
+        target3 = os.path.join(image_dir, "students_special_target.png")
+
+        ok1 = image_exists(target1)
+        ok2 = image_exists(target2)
+        if find_and_click(special_btn):
+            time.sleep(2)
+            ok3 = image_exists(target3)
+        else:
+            ok3 = False
+
+        if ok1 and ok2 and ok3:
+            write_result(case, "PASS")
+        else:
+            write_result(case, "FAIL (target check failed)")
+
+    elif case == "notice":
+        notice1 = os.path.join(image_dir, "notice1.png")
+        target_img = os.path.join(image_dir, "notice_target.png")
+
+        time.sleep(4)
+        if not find_and_click(notice1):
+            write_result(case, "FAIL (notice1 not found)")
+            attempt_recovery()
+            return
+
+        time.sleep(3)
+        found = False
+        for _ in range(15):
+            if image_exists(target_img):
+                found = True
+                break
+            pyautogui.scroll(-1000)
+            time.sleep(1)
+
+        if found:
+            write_result(case, "PASS")
+        else:
+            write_result(case, "FAIL (target not found after scrolling)")
+
+    else:
+        target_img = os.path.join(image_dir, f"{case}_target.png")
+        if image_exists(target_img):
+            write_result(case, "PASS")
+        else:
+            write_result(case, "FAIL (target not found)")
+            attempt_recovery()
+
+    time.sleep(2)
+    if not find_and_click(close_img):
+        write_log(f"{case}: close image not found, initiating recovery...")
+        attempt_recovery()
+
+    time.sleep(delay)
+
+# 전체 테스트 루프
+def run_tests_from_step(start_step=0):
     with open(test_case_file, "r", encoding="utf-8") as f:
         test_cases = json.load(f)
 
     for run in range(REPEAT):
         write_log(f"==== Run {run + 1} / {REPEAT} ====")
-
-        for case in test_cases:
-            button_img = os.path.join(image_dir, f"{case}_button.png")
-            close_img = os.path.join(image_dir, f"{case}_close.png")
-
-            print(f"Testing: {case}")
-            write_log(f"--- Start test: {case} ---")
-
-            # 버튼 이미지 탐색 실패 시 복구
-            if not find_and_click(button_img):
-                write_log(f"{case}: button not found, initiating recovery...")
-                attempt_recovery()
-                if not find_and_click(button_img):
-                    write_result(case, "FAIL (button not found after recovery)")
-                    continue
-
-            delay = SLOW_DELAY if case in slow_cases else NORMAL_DELAY
-            time.sleep(delay)
-
-
-            if case == "students":
-                # special_activate가 보이면 striker 클릭
-                special_activate_img = os.path.join(image_dir, "special_activate.png")
-                striker_img = os.path.join(image_dir, "striker.png")
-
-                if image_exists(special_activate_img):
-                    write_log("special_activate.png detected")
-                    if find_and_click(striker_img):
-                        write_log("Clicked striker.png")
-                        time.sleep(2)
-                    else:
-                        write_log("Failed to click striker.png")
-                else:
-                    write_log("special_activate.png not found, skipping striker click")
-
-                # 기존 students 테스트
-                target1 = os.path.join(image_dir, "students_target1.png")
-                target2 = os.path.join(image_dir, "students_target2.png")
-                special_btn = os.path.join(image_dir, "students_special_button.png")
-                target3 = os.path.join(image_dir, "students_special_target.png")
-
-                ok1 = image_exists(target1)
-                ok2 = image_exists(target2)
-                if find_and_click(special_btn):
-                    time.sleep(2)
-                    ok3 = image_exists(target3)
-                else:
-                    ok3 = False
-
-                if ok1 and ok2 and ok3:
-                    write_result(case, "PASS")
-                    write_log(f"{case}: PASS (3 target checks passed)")
-                else:
-                    write_result(case, "FAIL (target check failed)")
-                    write_log(f"{case}: FAIL (one or more target checks failed)")
-
-            elif case == "notice":
-                notice1 = os.path.join(image_dir, "notice1.png")
-                target_img = os.path.join(image_dir, "notice_target.png")
-
-                time.sleep(4)
-                if not find_and_click(notice1):
-                    write_result(case, "FAIL (notice1 not found)")
-                    write_log(f"{case}: FAIL (notice1 not found)")
-                    attempt_recovery()
-                    continue
-
-                time.sleep(3)
-                found = False
-                for _ in range(15):
-                    if image_exists(target_img):
-                        found = True
-                        break
-                    pyautogui.scroll(-1000)
-                    time.sleep(1)
-
-                if found:
-                    write_result(case, "PASS")
-                    write_log(f"{case}: PASS (target found after scrolling)")
-                else:
-                    write_result(case, "FAIL (target not found)")
-                    write_log(f"{case}: FAIL (target not found after scrolling)")
-
-            else:
-                target_img = os.path.join(image_dir, f"{case}_target.png")
-                if image_exists(target_img):
-                    write_result(case, "PASS")
-                    write_log(f"{case}: PASS")
-                else:
-                    write_result(case, "FAIL (target not found)")
-                    write_log(f"{case}: FAIL (target not found)")
-                    if not case.endswith("_target"):
-                        write_log(f"{case}: attempting recovery due to unexpected screen")
-                        attempt_recovery()
-
-            time.sleep(2)
-
-            if not find_and_click(close_img):
-                write_log(f"{case}: close image not found, initiating recovery...")
-                attempt_recovery()
-
-            time.sleep(delay)
-
+        for i, case in enumerate(test_cases):
+            if i >= start_step:
+                run_step(case)
         write_log(f"==== Run {run + 1} completed ====")
-
-    print("테스트 완료.")
     write_log("=== All tests completed ===")
+    print("테스트 완료.")
 
-# 메인 함수
+# main
 if __name__ == "__main__":
-    run_tests()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--start", type=int, default=1, help="테스트 시작 단계 index (1부터 시작)")
+    args = parser.parse_args()
+    start_index = max(0, args.start - 1)
+    run_tests_from_step(start_index)
