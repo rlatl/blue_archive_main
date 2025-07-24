@@ -9,6 +9,7 @@ from datetime import datetime
 import toml
 import argparse
 
+# python main.py --start n 입력시 해당 테스트부터 수행 가능
 #--start 1  : notice  
 #--start 2  : momo  
 #--start 3  : mission  
@@ -94,7 +95,7 @@ def find_and_click(template_path, threshold=0.9):
         write_log(f"find_and_click error: {e}")
         return False
 
-# 복구 함수
+# 복구 함수 , 테스트 진행중 예상치 못한 화면으로 이동했을때 메인 화면으로 이동시켜줌
 def attempt_recovery():
     back_button = (15, 48)
     main_img = os.path.join(image_dir, "main_campaign.png")
@@ -112,7 +113,7 @@ def attempt_recovery():
         attempt += 1
     write_log("Recovery success: main screen detected")
 
-# 단계별 테스트 실행
+# 단계별 테스트 수행 함수 , 일반 테스트는 버튼 이미지 탐색및 진입 > 타겟이미지 유무로 PASS/FAIL > 메인화면으로 돌아가는 버튼 선택으로 진행 , 공지, 학생 항목은 특수테스트로 진행
 def run_step(case):
     button_img = os.path.join(image_dir, f"{case}_button.png")
     close_img = os.path.join(image_dir, f"{case}_close.png")
@@ -120,6 +121,7 @@ def run_step(case):
     print(f"Testing: {case}")
     write_log(f"--- Start test: {case} ---")
 
+# 메인 화면에서 버튼 이미지 우선 수행 시도 하고 버튼 이미지 없을시 복구 함수 수행함
     if not find_and_click(button_img):
         write_log(f"{case}: button not found, initiating recovery...")
         attempt_recovery()
@@ -127,9 +129,11 @@ def run_step(case):
             write_result(case, "FAIL (button not found after recovery)")
             return
 
+     # 카페의 경우 로딩시간이 길어 딜레이를 추가함
     delay = SLOW_DELAY if case == "cafe" else NORMAL_DELAY
     time.sleep(delay)
 
+#학생 버튼 선택시 특수 테스트 : 스트라이커에 원하는 학생 2명, 스페셜에 원하는 학생 1명 찾기, 첫진입시 스페셜 학생 화면일 경우 스트라이커 학생 화면으로 전환
     if case == "students":
         special_activate_img = os.path.join(image_dir, "special_activate.png")
         striker_img = os.path.join(image_dir, "striker.png")
@@ -158,6 +162,7 @@ def run_step(case):
         else:
             write_result(case, "FAIL (target check failed)")
 
+#공지 버튼 선택시 특수 테스트 : 원하는 공지 한개 선택 후 스크롤을 원하는 이미지 나올때까지 내림
     elif case == "notice":
         notice1 = os.path.join(image_dir, "notice1.png")
         target_img = os.path.join(image_dir, "notice_target.png")
