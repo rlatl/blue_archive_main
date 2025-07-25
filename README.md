@@ -132,10 +132,11 @@ pip install -r requirements.txt
 
 ## 📹 시연 영상 및 테스트 결과
 
-👉 [시연 영상 보기](#)  
--블루아카이브 메인 화면 자동화 테스트 : https://youtu.be/LAH9yk3UA8k
--메인 화면 자동화 테스트 중 예외 상황에서 복구, 스팀 클라이언트 렉에도 테스트 지속 시연 : https://youtu.be/0PilaoCcWsU
--구글 클라우드 활용하여 테스트 결과 구글 시트에 자동 입력 : https://youtu.be/vN7u8v_onKI
+## 👉 시연 영상 보기
+
+- [블루아카이브 메인 화면 자동화 테스트](https://youtu.be/LAH9yk3UA8k)  
+- [예외 상황 복구 및 스팀 클라이언트 렉 지속 테스트](https://youtu.be/0PilaoCcWsU)  
+- [구글 시트에 테스트 결과 자동 입력](https://youtu.be/vN7u8v_onKI)
 
 👉 [테스트 설계 및 결과 보기 (Google Sheet)](https://docs.google.com/spreadsheets/d/1RJwQvNWn9rVNjy3hYpxLwXlS4RYEvjnUWjgHTlPDYW8/edit?usp=sharing)
 
