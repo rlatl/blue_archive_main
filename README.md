@@ -38,6 +38,7 @@
 
 ## 📂 디렉토리 구조 예시
 
+```
 blue_archive_main/
 ├── main.py                 # 테스트 실행 메인 스크립트
 ├── config.toml            # 테스트 설정 파일
