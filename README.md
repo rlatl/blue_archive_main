@@ -37,6 +37,7 @@
 ---
 
 📂 디렉토리 구조 예시
+```
 blue_archive_main/
 ├── main.py
 ├── config.toml
@@ -46,6 +47,7 @@ blue_archive_main/
 │   ├── notice_button.png
 │   ├── cafe_target.png
 │   ├── ...
+```
 
 ## 🚀 실행 방법
 
