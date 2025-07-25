@@ -36,6 +36,17 @@
 
 ---
 
+📂 디렉토리 구조 예시
+blue_archive_main/
+├── main.py
+├── config.toml
+├── test_log.txt
+├── test_results.txt
+├── images/
+│   ├── notice_button.png
+│   ├── cafe_target.png
+│   ├── ...
+
 ## 🚀 실행 방법
 
 ```bash
