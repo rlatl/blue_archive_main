@@ -113,15 +113,26 @@ def attempt_recovery():
         attempt += 1
     write_log("Recovery success: main screen detected")
 
-# 단계별 테스트 수행 함수 , 일반 테스트는 버튼 이미지 탐색및 진입 > 타겟이미지 유무로 PASS/FAIL > 메인화면으로 돌아가는 버튼 선택으로 진행 , 공지, 학생 항목은 특수테스트로 진행
-def run_step(case):
-    button_img = os.path.join(image_dir, f"{case}_button.png")
+#닫기 함수 : 테스트 수행 이후 메인화면으로 복귀함
+def close_image_or_recover(case):
     close_img = os.path.join(image_dir, f"{case}_close.png")
+    time.sleep(2)
+    if not find_and_click(close_img):
+        write_log(f"{case}: close image not found, initiating recovery...")
+        attempt_recovery()
+    time.sleep(SLOW_DELAY if case == "cafe" else NORMAL_DELAY)
+#닫기 함수 끝
 
-    print(f"Testing: {case}")
+
+#공지 사항 테스트 함수 : 공지 사항 진입 후 notice1 (테스트 희망 공지사항) 이미지 진입후
+#해당 공지 사항에서 타겟 이미지 있는지 테스트함, 테스트 후 공지 사항 닫고 메인 화면 복귀
+def test_notice():
+    case = "notice"
     write_log(f"--- Start test: {case} ---")
+    button_img = os.path.join(image_dir, f"{case}_button.png")
+    notice1 = os.path.join(image_dir, "notice1.png")
+    target_img = os.path.join(image_dir, "notice_target.png")
 
-# 메인 화면에서 버튼 이미지 우선 수행 시도 하고 버튼 이미지 없을시 복구 함수 수행함
     if not find_and_click(button_img):
         write_log(f"{case}: button not found, initiating recovery...")
         attempt_recovery()
@@ -129,78 +140,114 @@ def run_step(case):
             write_result(case, "FAIL (button not found after recovery)")
             return
 
-     # 카페의 경우 로딩시간이 길어 딜레이를 추가함
-    delay = SLOW_DELAY if case == "cafe" else NORMAL_DELAY
-    time.sleep(delay)
+    time.sleep(SLOW_DELAY)
 
-#학생 버튼 선택시 특수 테스트 : 스트라이커에 원하는 학생 2명, 스페셜에 원하는 학생 1명 찾기, 첫진입시 스페셜 학생 화면일 경우 스트라이커 학생 화면으로 전환
-    if case == "students":
-        special_activate_img = os.path.join(image_dir, "special_activate.png")
-        striker_img = os.path.join(image_dir, "striker.png")
+    if not find_and_click(notice1):
+        write_result(case, "FAIL (notice1 not found)")
+        attempt_recovery()
+        return
 
-        if image_exists(special_activate_img):
-            write_log("special_activate.png detected")
-            if find_and_click(striker_img):
-                write_log("Clicked striker.png")
-                time.sleep(2)
+    time.sleep(3)
+    found = False
+    for _ in range(15):
+        if image_exists(target_img):
+            found = True
+            break
+        pyautogui.scroll(-1000)
+        time.sleep(0.5)
 
-        target1 = os.path.join(image_dir, "students_target1.png")
-        target2 = os.path.join(image_dir, "students_target2.png")
-        special_btn = os.path.join(image_dir, "students_special_button.png")
-        target3 = os.path.join(image_dir, "students_special_target.png")
+    if found:
+        write_result(case, "PASS")
+    else:
+        write_result(case, "FAIL (target not found after scrolling)")
 
-        ok1 = image_exists(target1)
-        ok2 = image_exists(target2)
-        if find_and_click(special_btn):
-            time.sleep(2)
-            ok3 = image_exists(target3)
-        else:
-            ok3 = False
+    close_image_or_recover(case)
+# 공지 사항 테스트 함수 끝
 
-        if ok1 and ok2 and ok3:
-            write_result(case, "PASS")
-        else:
-            write_result(case, "FAIL (target check failed)")
 
-#공지 버튼 선택시 특수 테스트 : 원하는 공지 한개 선택 후 스크롤을 원하는 이미지 나올때까지 내림
-    elif case == "notice":
-        notice1 = os.path.join(image_dir, "notice1.png")
-        target_img = os.path.join(image_dir, "notice_target.png")
+#학생 목록 테스트 함수
+#학생 화면 진입 후 스트라이커에서 타겟 학생2명, 스페셜에서 타겟 학생 1명이 있는지 확인함
+#만약 학생 진입 시 스페셜 학생 목록이 활성화 되있으면 스트라이커 학생 목록으로 변경함
+def test_students():
+    case = "students"
+    write_log(f"--- Start test: {case} ---")
+    button_img = os.path.join(image_dir, f"{case}_button.png")
 
-        time.sleep(4)
-        if not find_and_click(notice1):
-            write_result(case, "FAIL (notice1 not found)")
-            attempt_recovery()
+    if not find_and_click(button_img):
+        write_log(f"{case}: button not found, initiating recovery...")
+        attempt_recovery()
+        if not find_and_click(button_img):
+            write_result(case, "FAIL (button not found after recovery)")
             return
 
-        time.sleep(3)
-        found = False
-        for _ in range(15):
-            if image_exists(target_img):
-                found = True
-                break
-            pyautogui.scroll(-1000)
-            time.sleep(1)
+    time.sleep(NORMAL_DELAY)
 
-        if found:
-            write_result(case, "PASS")
-        else:
-            write_result(case, "FAIL (target not found after scrolling)")
+    special_activate_img = os.path.join(image_dir, "special_activate.png")
+    striker_img = os.path.join(image_dir, "striker.png")
 
+    if image_exists(special_activate_img):
+        write_log("special_activate.png detected")
+        if find_and_click(striker_img):
+            write_log("Clicked striker.png")
+            time.sleep(2)
+
+    target1 = os.path.join(image_dir, "students_target1.png")
+    target2 = os.path.join(image_dir, "students_target2.png")
+    special_btn = os.path.join(image_dir, "students_special_button.png")
+    target3 = os.path.join(image_dir, "students_special_target.png")
+
+    ok1 = image_exists(target1)
+    ok2 = image_exists(target2)
+    if find_and_click(special_btn):
+        time.sleep(2)
+        ok3 = image_exists(target3)
     else:
-        target_img = os.path.join(image_dir, f"{case}_target.png")
-        if image_exists(target_img):
-            write_result(case, "PASS")
-        else:
-            write_result(case, "FAIL (target not found)")
-            attempt_recovery()
+        ok3 = False
 
-    time.sleep(2)
-    if not find_and_click(close_img):
-        write_log(f"{case}: close image not found, initiating recovery...")
+    if ok1 and ok2 and ok3:
+        write_result(case, "PASS")
+    else:
+        write_result(case, "FAIL (target check failed)")
+
+    close_image_or_recover(case)
+#학생 목록 테스트 끝
+
+
+#공지, 학생을 제외한 일반 항목 테스트 함수
+#항목 진입 후 타겟 이미지가 있으면 PASS, 이후 close 함수로 메인 화면으로 되돌아감
+#카페 테스트시에는 로딩이 길어서 slow delay 를 대기시간으로 가짐
+def test_generic(case):
+    write_log(f"--- Start test: {case} ---")
+    button_img = os.path.join(image_dir, f"{case}_button.png")
+    target_img = os.path.join(image_dir, f"{case}_target.png")
+
+    if not find_and_click(button_img):
+        write_log(f"{case}: button not found, initiating recovery...")
+        attempt_recovery()
+        if not find_and_click(button_img):
+            write_result(case, "FAIL (button not found after recovery)")
+            return
+
+    time.sleep(SLOW_DELAY if case == "cafe" else NORMAL_DELAY)
+
+    if image_exists(target_img):
+        write_result(case, "PASS")
+    else:
+        write_result(case, "FAIL (target not found)")
         attempt_recovery()
 
-    time.sleep(delay)
+    close_image_or_recover(case)
+#일반 항목 테스트 함수 끝
+
+
+# 단계별 테스트 수행 함수
+def run_step(case):
+    if case == "notice":
+        test_notice()
+    elif case == "students":
+        test_students()
+    else:
+        test_generic(case)
 
 # 전체 테스트 루프
 def run_tests_from_step(start_step=0):

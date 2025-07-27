@@ -414,3 +414,209 @@
 [2025-07-25 07:35:26] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_button.png
 [2025-07-25 07:35:29] Recovery attempt 1: clicked back button
 [2025-07-25 07:35:32] Recovery success: main screen detected
+[2025-07-25 07:40:10] ==== Run 1 / 3 ====
+[2025-07-25 07:40:10] --- Start test: notice ---
+[2025-07-25 07:40:11] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_button.png
+[2025-07-25 07:40:19] ==== Run 1 / 3 ====
+[2025-07-25 07:40:19] --- Start test: notice ---
+[2025-07-25 07:40:20] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_button.png
+[2025-07-25 07:40:27] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice1.png
+[2025-07-25 07:40:38] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_close.png
+[2025-07-25 07:40:41] --- Start test: momo ---
+[2025-07-25 07:40:42] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_button.png
+[2025-07-25 07:40:45] Recovery success: main screen detected
+[2025-07-25 07:40:47] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_close.png
+[2025-07-25 07:40:50] --- Start test: mission ---
+[2025-07-25 07:40:50] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_button.png
+[2025-07-25 07:40:56] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_close.png
+[2025-07-25 07:40:59] --- Start test: bluepy ---
+[2025-07-25 07:40:59] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_button.png
+[2025-07-25 07:41:04] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_close.png
+[2025-07-25 07:41:07] --- Start test: cafe ---
+[2025-07-25 07:41:08] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_button.png
+[2025-07-25 07:41:17] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_close.png
+[2025-07-25 07:41:24] --- Start test: lesson ---
+[2025-07-25 07:41:24] Clicked image: C:\Users\KIM\blue_archive_main_test\images\lesson_button.png
+[2025-07-25 07:41:30] Clicked image: C:\Users\KIM\blue_archive_main_test\images\lesson_close.png
+[2025-07-25 07:41:33] --- Start test: students ---
+[2025-07-25 07:41:33] Clicked image: C:\Users\KIM\blue_archive_main_test\images\students_button.png
+[2025-07-25 07:41:36] Image not found: C:\Users\KIM\blue_archive_main_test\images\students_special_button.png | confidence: 0.5349695682525635
+[2025-07-25 07:41:38] Image not found: C:\Users\KIM\blue_archive_main_test\images\students_close.png | confidence: 0.5560793280601501
+[2025-07-25 07:41:38] students: close image not found, initiating recovery...
+[2025-07-25 07:41:38] Recovery success: main screen detected
+[2025-07-25 07:41:41] --- Start test: formation ---
+[2025-07-25 07:41:42] Clicked image: C:\Users\KIM\blue_archive_main_test\images\formation_button.png
+[2025-07-25 07:41:45] Recovery success: main screen detected
+[2025-07-25 07:41:47] Image not found: C:\Users\KIM\blue_archive_main_test\images\formation_close.png | confidence: 0.5786547660827637
+[2025-07-25 07:41:47] formation: close image not found, initiating recovery...
+[2025-07-25 07:41:47] Recovery success: main screen detected
+[2025-07-25 07:41:50] --- Start test: social ---
+[2025-07-25 07:41:50] Clicked image: C:\Users\KIM\blue_archive_main_test\images\social_button.png
+[2025-07-25 07:42:05] ==== Run 1 / 3 ====
+[2025-07-25 07:42:05] --- Start test: notice ---
+[2025-07-25 07:42:05] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_button.png
+[2025-07-25 07:42:13] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice1.png
+[2025-07-25 07:42:24] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_close.png
+[2025-07-25 07:42:27] --- Start test: momo ---
+[2025-07-25 07:42:27] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_button.png
+[2025-07-25 07:42:30] Recovery success: main screen detected
+[2025-07-25 07:42:33] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_close.png
+[2025-07-25 07:42:36] --- Start test: mission ---
+[2025-07-25 07:42:36] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_button.png
+[2025-07-25 07:42:41] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_close.png
+[2025-07-25 07:42:44] --- Start test: bluepy ---
+[2025-07-25 07:42:45] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_button.png
+[2025-07-25 07:42:50] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_close.png
+[2025-07-25 07:42:53] --- Start test: cafe ---
+[2025-07-25 07:42:53] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_button.png
+[2025-07-25 07:43:03] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_close.png
+[2025-07-25 07:43:10] --- Start test: lesson ---
+[2025-07-25 07:43:10] Clicked image: C:\Users\KIM\blue_archive_main_test\images\lesson_button.png
+[2025-07-25 07:43:15] Clicked image: C:\Users\KIM\blue_archive_main_test\images\lesson_close.png
+[2025-07-25 07:43:18] --- Start test: students ---
+[2025-07-25 07:43:19] Clicked image: C:\Users\KIM\blue_archive_main_test\images\students_button.png
+[2025-07-25 07:43:22] Image not found: C:\Users\KIM\blue_archive_main_test\images\students_special_button.png | confidence: 0.5349718928337097
+[2025-07-25 07:43:24] Image not found: C:\Users\KIM\blue_archive_main_test\images\students_close.png | confidence: 0.556080162525177
+[2025-07-25 07:43:24] students: close image not found, initiating recovery...
+[2025-07-25 07:43:24] Recovery success: main screen detected
+[2025-07-25 07:43:27] --- Start test: formation ---
+[2025-07-25 07:43:27] Clicked image: C:\Users\KIM\blue_archive_main_test\images\formation_button.png
+[2025-07-25 07:43:30] Recovery success: main screen detected
+[2025-07-25 07:45:02] ==== Run 1 / 3 ====
+[2025-07-25 07:45:02] --- Start test: notice ---
+[2025-07-25 07:45:02] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_button.png
+[2025-07-25 07:45:09] Image not found: C:\Users\KIM\blue_archive_main_test\images\notice1.png | confidence: 0.2960800528526306
+[2025-07-25 07:45:10] Recovery success: main screen detected
+[2025-07-25 07:45:10] --- Start test: momo ---
+[2025-07-25 07:45:10] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_button.png
+[2025-07-25 07:45:13] Recovery success: main screen detected
+[2025-07-25 07:45:15] Image not found: C:\Users\KIM\blue_archive_main_test\images\momo_close.png | confidence: 0.4016430974006653
+[2025-07-25 07:45:15] momo: close image not found, initiating recovery...
+[2025-07-25 07:45:15] Recovery success: main screen detected
+[2025-07-25 07:45:18] --- Start test: mission ---
+[2025-07-25 07:45:18] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_button.png
+[2025-07-25 07:45:22] Recovery success: main screen detected
+[2025-07-25 07:45:24] Image not found: C:\Users\KIM\blue_archive_main_test\images\mission_close.png | confidence: 0.5726644992828369
+[2025-07-25 07:45:24] mission: close image not found, initiating recovery...
+[2025-07-25 07:45:24] Recovery success: main screen detected
+[2025-07-25 07:45:27] --- Start test: bluepy ---
+[2025-07-25 07:45:27] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_button.png
+[2025-07-25 07:45:41] ==== Run 1 / 3 ====
+[2025-07-25 07:45:41] --- Start test: notice ---
+[2025-07-25 07:45:41] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_button.png
+[2025-07-25 07:45:48] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice1.png
+[2025-07-25 07:45:59] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_close.png
+[2025-07-25 07:46:02] --- Start test: momo ---
+[2025-07-25 07:46:03] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_button.png
+[2025-07-25 07:46:06] Recovery success: main screen detected
+[2025-07-25 07:46:08] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_close.png
+[2025-07-25 07:46:11] --- Start test: mission ---
+[2025-07-25 07:46:11] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_button.png
+[2025-07-25 07:46:17] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_close.png
+[2025-07-25 07:46:20] --- Start test: bluepy ---
+[2025-07-25 07:46:20] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_button.png
+[2025-07-25 07:46:25] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_close.png
+[2025-07-25 07:46:28] --- Start test: cafe ---
+[2025-07-25 07:46:29] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_button.png
+[2025-07-25 07:46:38] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_close.png
+[2025-07-25 07:46:45] --- Start test: lesson ---
+[2025-07-25 07:46:45] Clicked image: C:\Users\KIM\blue_archive_main_test\images\lesson_button.png
+[2025-07-25 07:46:51] Clicked image: C:\Users\KIM\blue_archive_main_test\images\lesson_close.png
+[2025-07-25 07:46:54] --- Start test: students ---
+[2025-07-25 07:46:54] Clicked image: C:\Users\KIM\blue_archive_main_test\images\students_button.png
+[2025-07-25 07:46:57] special_activate.png detected
+[2025-07-25 07:46:57] Clicked image: C:\Users\KIM\blue_archive_main_test\images\striker.png
+[2025-07-25 07:46:57] Clicked striker.png
+[2025-07-25 07:47:00] Clicked image: C:\Users\KIM\blue_archive_main_test\images\students_special_button.png
+[2025-07-25 07:47:04] Clicked image: C:\Users\KIM\blue_archive_main_test\images\students_close.png
+[2025-07-25 07:47:07] --- Start test: formation ---
+[2025-07-25 07:47:08] Clicked image: C:\Users\KIM\blue_archive_main_test\images\formation_button.png
+[2025-07-25 07:47:13] Clicked image: C:\Users\KIM\blue_archive_main_test\images\formation_close.png
+[2025-07-25 07:47:16] --- Start test: social ---
+[2025-07-25 07:47:16] Clicked image: C:\Users\KIM\blue_archive_main_test\images\social_button.png
+[2025-07-25 07:47:22] Clicked image: C:\Users\KIM\blue_archive_main_test\images\social_close.png
+[2025-07-25 07:47:25] --- Start test: crafting ---
+[2025-07-25 07:47:25] Clicked image: C:\Users\KIM\blue_archive_main_test\images\crafting_button.png
+[2025-07-25 07:47:30] Clicked image: C:\Users\KIM\blue_archive_main_test\images\crafting_close.png
+[2025-07-25 07:47:33] --- Start test: shop ---
+[2025-07-25 07:47:34] Clicked image: C:\Users\KIM\blue_archive_main_test\images\shop_button.png
+[2025-07-25 07:47:39] Clicked image: C:\Users\KIM\blue_archive_main_test\images\shop_close.png
+[2025-07-25 07:47:42] --- Start test: recruit ---
+[2025-07-25 07:47:42] Clicked image: C:\Users\KIM\blue_archive_main_test\images\recruit_button.png
+[2025-07-25 07:47:48] Clicked image: C:\Users\KIM\blue_archive_main_test\images\recruit_close.png
+[2025-07-25 07:47:51] ==== Run 1 completed ====
+[2025-07-25 07:47:51] ==== Run 2 / 3 ====
+[2025-07-25 07:47:51] --- Start test: notice ---
+[2025-07-25 07:47:51] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_button.png
+[2025-07-25 07:47:58] Image not found: C:\Users\KIM\blue_archive_main_test\images\notice1.png | confidence: 0.3643498420715332
+[2025-07-25 07:47:58] Recovery attempt 1: clicked back button
+[2025-07-25 07:48:01] Recovery success: main screen detected
+[2025-07-25 07:48:01] --- Start test: momo ---
+[2025-07-25 07:48:01] Image not found: C:\Users\KIM\blue_archive_main_test\images\momo_button.png | confidence: 0.5152713656425476
+[2025-07-25 07:48:01] momo: button not found, initiating recovery...
+[2025-07-25 07:48:01] Recovery success: main screen detected
+[2025-07-25 07:48:02] Image not found: C:\Users\KIM\blue_archive_main_test\images\momo_button.png | confidence: 0.5151296257972717
+[2025-07-25 07:48:02] --- Start test: mission ---
+[2025-07-25 07:48:02] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_button.png
+[2025-07-25 08:03:34] ==== Run 1 / 3 ====
+[2025-07-25 08:03:34] --- Start test: notice ---
+[2025-07-25 08:03:34] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_button.png
+[2025-07-25 08:03:41] Image not found: C:\Users\KIM\blue_archive_main_test\images\notice1.png | confidence: 0.25300219655036926
+[2025-07-25 08:03:41] Recovery attempt 1: clicked back button
+[2025-07-25 08:03:45] Recovery attempt 2: clicked back button
+[2025-07-25 08:03:48] Recovery success: main screen detected
+[2025-07-25 08:03:48] --- Start test: momo ---
+[2025-07-25 08:03:48] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_button.png
+[2025-07-25 08:03:51] Recovery success: main screen detected
+[2025-07-25 08:03:53] Image not found: C:\Users\KIM\blue_archive_main_test\images\momo_close.png | confidence: 0.4035997688770294
+[2025-07-25 08:03:53] momo: close image not found, initiating recovery...
+[2025-07-25 08:03:53] Recovery success: main screen detected
+[2025-07-25 08:03:56] --- Start test: mission ---
+[2025-07-25 08:03:57] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_button.png
+[2025-07-25 08:04:00] Recovery success: main screen detected
+[2025-07-25 08:04:02] Image not found: C:\Users\KIM\blue_archive_main_test\images\mission_close.png | confidence: 0.5726644992828369
+[2025-07-25 08:04:02] mission: close image not found, initiating recovery...
+[2025-07-25 08:04:02] Recovery success: main screen detected
+[2025-07-25 08:04:05] --- Start test: bluepy ---
+[2025-07-25 08:04:05] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_button.png
+[2025-07-25 08:04:11] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_close.png
+[2025-07-27 23:37:15] ==== Run 1 / 3 ====
+[2025-07-27 23:37:15] --- Start test: notice ---
+[2025-07-27 23:37:15] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_button.png
+[2025-07-27 23:37:23] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice1.png
+[2025-07-27 23:37:31] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_close.png
+[2025-07-27 23:37:34] --- Start test: momo ---
+[2025-07-27 23:37:34] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_button.png
+[2025-07-27 23:37:38] Recovery success: main screen detected
+[2025-07-27 23:37:40] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_close.png
+[2025-07-27 23:37:43] --- Start test: mission ---
+[2025-07-27 23:37:43] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_button.png
+[2025-07-27 23:37:49] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_close.png
+[2025-07-27 23:37:52] --- Start test: bluepy ---
+[2025-07-27 23:37:52] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_button.png
+[2025-07-27 23:37:55] Recovery success: main screen detected
+[2025-07-27 23:37:57] Image not found: C:\Users\KIM\blue_archive_main_test\images\bluepy_close.png | confidence: 0.4729081988334656
+[2025-07-27 23:37:57] bluepy: close image not found, initiating recovery...
+[2025-07-27 23:37:57] Recovery success: main screen detected
+[2025-07-27 23:38:00] --- Start test: cafe ---
+[2025-07-27 23:38:00] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_button.png
+[2025-07-27 23:38:08] Recovery attempt 1: clicked back button
+[2025-07-27 23:38:11] Recovery attempt 2: clicked back button
+[2025-07-27 23:38:14] Recovery attempt 3: clicked back button
+[2025-07-27 23:38:17] Recovery success: main screen detected
+[2025-07-27 23:38:19] Image not found: C:\Users\KIM\blue_archive_main_test\images\cafe_close.png | confidence: 0.5721316933631897
+[2025-07-27 23:38:19] cafe: close image not found, initiating recovery...
+[2025-07-27 23:38:19] Recovery success: main screen detected
+[2025-07-27 23:38:26] --- Start test: lesson ---
+[2025-07-27 23:38:27] Clicked image: C:\Users\KIM\blue_archive_main_test\images\lesson_button.png
+[2025-07-27 23:38:30] Recovery success: main screen detected
+[2025-07-27 23:38:32] Image not found: C:\Users\KIM\blue_archive_main_test\images\lesson_close.png | confidence: 0.5696884393692017
+[2025-07-27 23:38:32] lesson: close image not found, initiating recovery...
+[2025-07-27 23:38:32] Recovery success: main screen detected
+[2025-07-27 23:38:35] --- Start test: students ---
+[2025-07-27 23:38:35] Clicked image: C:\Users\KIM\blue_archive_main_test\images\students_button.png
+[2025-07-27 23:38:38] special_activate.png detected
+[2025-07-27 23:38:39] Clicked image: C:\Users\KIM\blue_archive_main_test\images\striker.png
+[2025-07-27 23:38:39] Clicked striker.png
+[2025-07-27 23:38:41] Clicked image: C:\Users\KIM\blue_archive_main_test\images\students_special_button.png
+[2025-07-27 23:38:45] Clicked image: C:\Users\KIM\blue_archive_main_test\images\students_close.png
