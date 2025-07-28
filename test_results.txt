@@ -58,3 +58,16 @@
 [2025-07-28 00:13:01] crafting: PASS
 [2025-07-28 00:13:10] shop: PASS
 [2025-07-28 00:13:18] recruit: PASS
+[2025-07-28 00:18:50] bluepy: PASS
+[2025-07-28 00:19:03] cafe: PASS
+[2025-07-28 23:28:55] notice: FAIL (notice1 not found)
+[2025-07-28 23:28:58] momo: FAIL (target not found)
+[2025-07-28 23:43:34] notice: FAIL (notice1 not found)
+[2025-07-28 23:44:37] notice: PASS
+[2025-07-28 23:44:45] momo: FAIL (target not found)
+[2025-07-29 00:01:59] momo: FAIL (target not found)
+[2025-07-29 00:02:11] mission: PASS
+[2025-07-29 00:02:20] bluepy: PASS
+[2025-07-29 00:03:01] momo: FAIL (target not found)
+[2025-07-29 00:16:41] momo: FAIL (target not found)
+[2025-07-29 00:17:29] momo: PASS

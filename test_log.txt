@@ -712,3 +712,75 @@
 [2025-07-28 00:13:15] --- Start test: recruit ---
 [2025-07-28 00:13:15] Clicked image: C:\Users\KIM\blue_archive_main_test\images\recruit_button.png
 [2025-07-28 00:13:21] Clicked image: C:\Users\KIM\blue_archive_main_test\images\recruit_close.png
+[2025-07-28 00:18:47] ==== Run 1 / 3 ====
+[2025-07-28 00:18:47] --- Start test: bluepy ---
+[2025-07-28 00:18:47] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_button.png
+[2025-07-28 00:18:53] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_close.png
+[2025-07-28 00:18:56] --- Start test: cafe ---
+[2025-07-28 00:18:56] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_button.png
+[2025-07-28 00:19:05] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_close.png
+[2025-07-28 23:28:48] ==== Run 1 / 3 ====
+[2025-07-28 23:28:48] --- Start test: notice ---
+[2025-07-28 23:28:48] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_button.png
+[2025-07-28 23:28:55] Image not found: C:\Users\KIM\blue_archive_main_test\images\notice1.png | confidence: 0.5128834843635559
+[2025-07-28 23:28:55] Recovery success: main screen detected
+[2025-07-28 23:28:55] --- Start test: momo ---
+[2025-07-28 23:28:55] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_button.png
+[2025-07-28 23:28:58] Recovery success: main screen detected
+[2025-07-28 23:29:01] Image not found: C:\Users\KIM\blue_archive_main_test\images\momo_close.png | confidence: 0.4899832606315613
+[2025-07-28 23:29:01] momo: close image not found, initiating recovery...
+[2025-07-28 23:29:01] Recovery success: main screen detected
+[2025-07-28 23:29:04] --- Start test: mission ---
+[2025-07-28 23:29:04] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_button.png
+[2025-07-28 23:43:27] ==== Run 1 / 3 ====
+[2025-07-28 23:43:27] --- Start test: notice ---
+[2025-07-28 23:43:27] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_button.png
+[2025-07-28 23:43:34] Image not found: C:\Users\KIM\blue_archive_main_test\images\notice1.png | confidence: 0.5132451057434082
+[2025-07-28 23:43:35] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_close.png
+[2025-07-28 23:43:35] Recovery attempt 1: clicked notice_close
+[2025-07-28 23:43:38] Recovery success: main screen detected
+[2025-07-28 23:43:38] --- Start test: momo ---
+[2025-07-28 23:43:38] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_button.png
+[2025-07-28 23:44:23] ==== Run 1 / 3 ====
+[2025-07-28 23:44:23] --- Start test: notice ---
+[2025-07-28 23:44:23] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_button.png
+[2025-07-28 23:44:30] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice1.png
+[2025-07-28 23:44:39] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_close.png
+[2025-07-28 23:44:42] --- Start test: momo ---
+[2025-07-28 23:44:42] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_button.png
+[2025-07-28 23:44:46] Recovery attempt 1: clicked back button
+[2025-07-28 23:44:49] Recovery success: main screen detected
+[2025-07-28 23:44:51] Image not found: C:\Users\KIM\blue_archive_main_test\images\momo_close.png | confidence: 0.4026812016963959
+[2025-07-28 23:44:51] momo: close image not found, initiating recovery...
+[2025-07-28 23:44:51] Recovery success: main screen detected
+[2025-07-28 23:44:54] --- Start test: mission ---
+[2025-07-28 23:44:54] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_button.png
+[2025-07-29 00:01:56] ==== Run 1 / 3 ====
+[2025-07-29 00:01:56] --- Start test: momo ---
+[2025-07-29 00:01:56] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_button.png
+[2025-07-29 00:02:00] Recovery attempt 1: clicked back button
+[2025-07-29 00:02:03] Recovery success: main screen detected
+[2025-07-29 00:02:05] Image not found: C:\Users\KIM\blue_archive_main_test\images\momo_close.png | confidence: 0.40375661849975586
+[2025-07-29 00:02:05] momo: close image not found, initiating recovery...
+[2025-07-29 00:02:05] Recovery success: main screen detected
+[2025-07-29 00:02:08] --- Start test: mission ---
+[2025-07-29 00:02:08] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_button.png
+[2025-07-29 00:02:13] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_close.png
+[2025-07-29 00:02:16] --- Start test: bluepy ---
+[2025-07-29 00:02:17] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_button.png
+[2025-07-29 00:02:22] Clicked image: C:\Users\KIM\blue_archive_main_test\images\bluepy_close.png
+[2025-07-29 00:02:58] ==== Run 1 / 3 ====
+[2025-07-29 00:02:58] --- Start test: momo ---
+[2025-07-29 00:02:58] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_button.png
+[2025-07-29 00:03:01] Recovery attempt 1: clicked back button
+[2025-07-29 00:16:38] ==== Run 1 / 3 ====
+[2025-07-29 00:16:38] --- Start test: momo ---
+[2025-07-29 00:16:38] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_button.png
+[2025-07-29 00:16:41] Template not found: C:\Users\KIM\blue_archive_main_test\images\momo_target.png
+[2025-07-29 00:16:41] Recovery attempt 1: clicked back button
+[2025-07-29 00:17:26] ==== Run 1 / 3 ====
+[2025-07-29 00:17:26] --- Start test: momo ---
+[2025-07-29 00:17:26] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_button.png
+[2025-07-29 00:17:31] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_close.png
+[2025-07-29 00:17:34] --- Start test: mission ---
+[2025-07-29 00:17:34] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_button.png

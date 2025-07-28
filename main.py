@@ -97,12 +97,14 @@ def find_and_click(template_path, threshold=0.9):
 
 # 복구 함수 , 테스트 진행중 예상치 못한 화면으로 이동했을때 메인 화면으로 이동시켜줌
 def attempt_recovery():
-    back_button = (15, 48)
-    main_img = os.path.join(image_dir, "main_campaign.png")
+    back_button = (15, 48) # 게임 화면에서 뒤로가기가 있는 위치를 클릭
+    main_img = os.path.join(image_dir, "main_event.png") # 메인 화면으로 이동했는지 알려주는 이미지, '이벤트 일람' 이미지 사용
     notice_close_img = os.path.join(image_dir, "notice_close.png")
-
     attempt = 0
-    while not image_exists(main_img):
+    
+    #공지사항이 열려있을때는 뒤로가기 위치를 클릭해도 메인화면으로 이동하지 않음
+    #따라서 공지사항 열려있을때는 예외적으로 공지사항 닫기 이미지를 클릭하도록 처리
+    while not image_exists(main_img): 
         if image_exists(notice_close_img):
             find_and_click(notice_close_img)
             write_log(f"Recovery attempt {attempt + 1}: clicked notice_close")
