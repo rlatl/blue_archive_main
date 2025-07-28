@@ -110,7 +110,7 @@ social_close.png
 students_close.png
 
 기타 특수 기능 이미지 
-main_campaign.png : 복구 로직 가동 이후 메인 화면으로 잘 복귀했나 확인용 (업무/campaign 아이콘 사용)
+main_event.png : 복구 로직 가동 이후 메인 화면으로 잘 복귀했나 확인용 ('이벤트 일람' 아이콘 사용)
 notice1.png : 메인 화면에서 '공지' 진입 후 특정 세부 공지를 클릭하기 위한 이미지
 special_activate.png : '학생' 항목에 진입했을때 현재 학생 목록이 스페셜인지 판별위한 이미지
 striker.png : '학생' 항목에서 striker 버튼을 탐색하고 클릭하기 위한 이미지
