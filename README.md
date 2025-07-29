@@ -1,4 +1,4 @@
-# Blue Archive PC Main Screen Automation Test
+# Blue Archive - PC 메인 화면 자동화 테스트
 
 이 저장소는 **블루 아카이브 PC판 Steam 버전**의 **메인 화면 UI 요소를 자동 검증**하는 테스트 스크립트를 포함합니다.  
 **PyAutoGUI**와 **Python 표준 라이브러리** 및 **OpenCV** 기반으로 작성되었습니다.
