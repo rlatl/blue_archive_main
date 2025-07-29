@@ -232,6 +232,18 @@ def test_generic(case):
 
     time.sleep(SLOW_DELAY if case == "cafe" else NORMAL_DELAY)
 
+    #카페 테스트 시 매일 04시, 16시에 갱신되는
+    #'방문 학생 목록' 창이 떴을때 확인 키를 누르고 테스트롤 계속 진행하기 위한 동작
+    if case == "cafe":
+        student_list_img = os.path.join(image_dir, "cafe_students_list_ok.png")
+        time.sleep(2)
+        if image_exists(student_list_img):
+            find_and_click(student_list_img)
+            write_log(f"{case}: clicked cafe_students_list_ok.png")
+            time.sleep(2)
+        else:
+            write_log(f"{case}: cafe_students_list_ok.png not found")
+
     if image_exists(target_img):
         write_result(case, "PASS")
     else:

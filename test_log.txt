@@ -784,3 +784,16 @@
 [2025-07-29 00:17:31] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_close.png
 [2025-07-29 00:17:34] --- Start test: mission ---
 [2025-07-29 00:17:34] Clicked image: C:\Users\KIM\blue_archive_main_test\images\mission_button.png
+[2025-07-30 01:24:00] ==== Run 1 / 3 ====
+[2025-07-30 01:24:00] --- Start test: notice ---
+[2025-07-30 01:24:00] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_button.png
+[2025-07-30 01:24:08] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice1.png
+[2025-07-30 01:24:16] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_close.png
+[2025-07-30 01:24:19] --- Start test: momo ---
+[2025-07-30 01:24:20] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_button.png
+[2025-07-30 01:24:25] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_close.png
+[2025-07-30 01:25:12] ==== Run 1 / 3 ====
+[2025-07-30 01:25:12] --- Start test: cafe ---
+[2025-07-30 01:25:12] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_button.png
+[2025-07-30 01:25:22] cafe: cafe_students_list_ok.png not found
+[2025-07-30 01:25:24] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_close.png
