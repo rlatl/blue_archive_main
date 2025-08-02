@@ -797,3 +797,28 @@
 [2025-07-30 01:25:12] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_button.png
 [2025-07-30 01:25:22] cafe: cafe_students_list_ok.png not found
 [2025-07-30 01:25:24] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_close.png
+[2025-07-30 08:40:43] ==== Run 1 / 3 ====
+[2025-07-30 08:40:43] --- Start test: cafe ---
+[2025-07-30 08:40:43] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_button.png
+[2025-07-30 08:40:52] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_students_list_ok.png
+[2025-07-30 08:40:52] cafe: clicked cafe_students_list_ok.png
+[2025-07-30 08:40:57] Clicked image: C:\Users\KIM\blue_archive_main_test\images\cafe_close.png
+[2025-08-03 01:32:27] ==== Run 1 / 3 ====
+[2025-08-03 01:32:27] --- Start test: notice ---
+[2025-08-03 01:32:27] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_button.png
+[2025-08-03 01:32:34] Image not found: C:\Users\KIM\blue_archive_main_test\images\notice1.png | confidence: 0.33974817395210266
+[2025-08-03 01:32:35] Clicked image: C:\Users\KIM\blue_archive_main_test\images\notice_close.png
+[2025-08-03 01:32:35] Recovery attempt 1: clicked notice_close
+[2025-08-03 01:32:38] Recovery success: main screen detected
+[2025-08-03 01:32:38] --- Start test: momo ---
+[2025-08-03 01:32:38] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_button.png
+[2025-08-03 01:32:43] Clicked image: C:\Users\KIM\blue_archive_main_test\images\momo_close.png
+[2025-08-03 01:34:47] ==== Run 1 / 3 ====
+[2025-08-03 01:34:47] --- Start test: shop ---
+[2025-08-03 01:34:47] Clicked image: C:\Users\KIM\blue_archive_main_test\images\shop_button.png
+[2025-08-03 01:34:50] Recovery attempt 1: clicked back button
+[2025-08-03 01:34:54] Recovery attempt 2: clicked back button
+[2025-08-03 01:34:57] Recovery success: main screen detected
+[2025-08-03 01:34:59] Image not found: C:\Users\KIM\blue_archive_main_test\images\shop_close.png | confidence: 0.5796584486961365
+[2025-08-03 01:34:59] shop: close image not found, initiating recovery...
+[2025-08-03 01:34:59] Recovery success: main screen detected
