@@ -33,7 +33,7 @@ flowchart TD
     F2 --> F3{타겟 이미지 탐색}
     F3 -->|있음| F4[PASS 기록 후 복귀] --> A
     F3 -->|없음| F3F[FAIL 기록 후 메인화면 복귀] --> A
- note["지정 횟수만큼 테스트 반복"]
+ 
 ```
 ---
 ## 📌 주요 기능
@@ -78,7 +78,6 @@ blue_archive_main/
 │   ├── notice_button.png
 │   ├── momo_button.png
 │   ├── ...
-├── flowchart/             #전체 테스트 흐름도 저장 폴더
 
 ```
 
